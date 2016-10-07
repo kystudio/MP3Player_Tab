@@ -4,10 +4,6 @@
     android:layout_height="match_parent"
     tools:context="com.kystudio.mp3player_tab.RemoteMp3ListFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="remoteMp3List" />
     <LinearLayout
         android:id="@+id/listLinearLayout"
         android:layout_width="fill_parent"
