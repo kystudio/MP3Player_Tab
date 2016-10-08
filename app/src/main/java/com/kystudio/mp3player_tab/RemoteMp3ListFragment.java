@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
@@ -31,6 +34,8 @@ import javax.xml.parsers.SAXParserFactory;
  * A simple {@link ListFragment} subclass.
  */
 public class RemoteMp3ListFragment extends ListFragment {
+    private static final int UPDATE = 1;
+    private static final int ABOUT = 2;
     private List<Mp3Info> mp3Infos = null;
 
     public RemoteMp3ListFragment() {
@@ -47,7 +52,6 @@ public class RemoteMp3ListFragment extends ListFragment {
         return rootView;
     }
 
-
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         Mp3Info mp3Info = mp3Infos.get(position);
@@ -57,6 +61,27 @@ public class RemoteMp3ListFragment extends ListFragment {
         intent.setClass(this.getActivity(), DownloadService.class);
         getActivity().startService(intent);
         super.onListItemClick(l, v, position, id);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.add(0, UPDATE, 1, R.string.mp3list_update);
+        menu.add(0, ABOUT, 2, R.string.mp3list_about);
+        //return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == UPDATE) {
+            updateListView();
+        } else if (id == ABOUT) {
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void updateListView() {

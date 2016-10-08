@@ -15,7 +15,7 @@ import com.kystudio.mp3player_tab.service.PlayerService;
 
 public class PlayerActivity extends Activity {
     private Button beginButton, pauseButton, stopButton;
-    private TextView lrcTextView;
+    private TextView mp3_name,lrcTextView;
 
     private Mp3Info mp3Info = null;
     private IntentFilter intentFilter = null;
@@ -32,7 +32,10 @@ public class PlayerActivity extends Activity {
         beginButton = (Button) findViewById(R.id.begin);
         pauseButton = (Button) findViewById(R.id.pause);
         stopButton = (Button) findViewById(R.id.stop);
+        mp3_name = (TextView) findViewById(R.id.mp3_name);
         lrcTextView = (TextView) findViewById(R.id.lrcText);
+        mp3_name.setText(mp3Info.getMp3Name());
+        lrcTextView.setText("");
 
         beginButton.setOnClickListener(new BeginButtonListener());
         pauseButton.setOnClickListener(new PauseButtonListener());

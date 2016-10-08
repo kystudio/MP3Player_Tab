@@ -23,11 +23,16 @@ public class LrcProcessor {
             BufferedReader bufferedReader = new BufferedReader(inputReader);
             String temp = null;
             int i = 0;
+            Long timeMill;
+            // 先添加一个空的时间点
+            timeMill = time2Long("00:00.00");
+            timeMills.offer(timeMill);
             // Pattern p = Pattern.compile("\\[([^\\]]+)\\]");
             // [00:01.60]xxxxx
             Pattern p = Pattern.compile("\\[(\\d{2}:\\d{2}[.]\\d{2})\\]");
-            String result = null;
+            String result = "";
             boolean b = true;
+
 
             while (null != (temp = bufferedReader.readLine())) {
                 i++;
@@ -37,14 +42,14 @@ public class LrcProcessor {
                         messages.add(result);
                     }
                     String timeStr = m.group();
-                    Long timeMill = time2Long(timeStr.substring(1, timeStr.length() - 1));
+                    timeMill = time2Long(timeStr.substring(1, timeStr.length() - 1));
                     if (b) {
                         timeMills.offer(timeMill);
                     }
                     String msg = temp.substring(10);
                     result = "" + msg + "\n";
                 } else {
-                    result = result + temp + "\n";
+                    //result = result + temp + "\n";
                 }
             }
             messages.add(result);

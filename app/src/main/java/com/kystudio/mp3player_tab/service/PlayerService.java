@@ -67,7 +67,7 @@ public class PlayerService extends Service {
             mediaPlayer.start();
             // 读取lrc文件
             prepareLrc(mp3Info.getLrcName());
-            handler.postDelayed(updateTimeCallback, 5);
+            handler.postDelayed(updateTimeCallback, 15);
             // 将begin的值设置为当前毫秒数
             begin = System.currentTimeMillis();
 
@@ -83,7 +83,7 @@ public class PlayerService extends Service {
             pauseTimeMill = System.currentTimeMillis();
         } else {
             mediaPlayer.start();
-            handler.postDelayed(updateTimeCallback, 5);
+            handler.postDelayed(updateTimeCallback, 15);
             begin = System.currentTimeMillis() - pauseTimeMill + begin;
         }
         isPlaying = isPlaying ? false : true;
@@ -151,17 +151,30 @@ public class PlayerService extends Service {
             }
 
             if (offset >= nextTimeMill) {
-                message = (String) messages.poll();
-                nextTimeMill = (long) times.poll();
-
                 Intent intent = new Intent();
                 intent.setAction(AppConstant.LRC_MESSAGE_ACTION);
                 intent.putExtra("lrcMessage", message);
                 sendBroadcast(intent);
+
+                nextTimeMill = (long) times.poll();
+                message = (String) messages.poll();
             }
 
-            currentTimeMill = currentTimeMill + 5;
-            handler.postDelayed(updateTimeCallback, 5);
+            if (!times.isEmpty()) {
+                currentTimeMill = currentTimeMill + 5;
+                handler.postDelayed(updateTimeCallback, 15);
+            }else{
+                // 广播最后一句歌词信息
+                Intent intent = new Intent();
+                intent.setAction(AppConstant.LRC_MESSAGE_ACTION);
+                intent.putExtra("lrcMessage", message);
+                sendBroadcast(intent);
+                // 播放完毕，移除回调线程
+                handler.removeCallbacks(updateTimeCallback);
+                // 初始化播放状态
+                isPlaying = false;
+                isReleased = true;
+            }
         }
     }
 }
