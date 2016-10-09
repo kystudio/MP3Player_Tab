@@ -2,22 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:layout_weight="10"
     android:orientation="horizontal"
+    android:paddingBottom="1dp"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
-    android:paddingTop="1dp"
-    android:paddingBottom="1dp">
+    android:paddingTop="1dp">
 
     <TextView
         android:id="@+id/mp3_name"
-        android:layout_height="30dp"
         android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
         android:textSize="10pt" />
 
     <TextView
         android:id="@+id/mp3_size"
-        android:layout_height="30dp"
         android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
         android:textSize="10pt" />
 
 </LinearLayout>

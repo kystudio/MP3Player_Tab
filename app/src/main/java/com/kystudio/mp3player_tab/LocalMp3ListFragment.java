@@ -51,7 +51,7 @@ public class LocalMp3ListFragment extends ListFragment {
             list.add(map);
         }
 
-        SimpleAdapter simpleAdapter = new SimpleAdapter(this.getActivity(), list, R.layout.mp3info_item, new String[]{"mp3_name", "mp3_size"}, new int[]{R.id.mp3_name, R.id.mp3_size});
+        SimpleAdapter simpleAdapter = new SimpleAdapter(this.getActivity(), list, R.layout.local_mp3info_item, new String[]{"mp3_name", "mp3_size"}, new int[]{R.id.mp3_name, R.id.mp3_size});
         setListAdapter(simpleAdapter);
 
         super.onResume();

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_weight="10"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal"
+    android:paddingBottom="1dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="1dp">
+
+    <TextView
+        android:id="@+id/mp3_name"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:textSize="10pt" />
+
+    <TextView
+        android:id="@+id/mp3_size"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:textSize="10pt" />
+
+    <Button
+        android:id="@+id/mp3_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:text="播放"
+        android:textSize="10pt" />
+
+    <Button
+        android:id="@+id/mp3_download"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:text="下载"
+        android:textSize="10pt" />
+</LinearLayout>

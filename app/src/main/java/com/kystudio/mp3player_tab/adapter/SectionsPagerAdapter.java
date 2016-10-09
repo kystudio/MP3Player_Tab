@@ -1,8 +1,11 @@
-package com.kystudio.mp3player_tab;
+package com.kystudio.mp3player_tab.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.kystudio.mp3player_tab.LocalMp3ListFragment;
+import com.kystudio.mp3player_tab.RemoteMp3ListFragment;
 
 /**
  * Created by 20236320 on 2016/10/7.

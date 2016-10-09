@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">MP3Player_Tab</string>
-    <string name="section_format">Hello World from section: %1$d</string>
-    <string name="mp3list.update">更新列表</string>
-    <string name="mp3list.about">关于</string>
+    <string name="menu.readme">使用说明</string>
+    <string name="menu.about">关于</string>
 </resources>

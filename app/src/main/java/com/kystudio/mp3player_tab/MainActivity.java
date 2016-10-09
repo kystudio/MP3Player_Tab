@@ -8,10 +8,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.kystudio.mp3player_tab.adapter.SectionsPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
     //private static final int UPDATE = 1;
     //private static final int ABOUT = 2;
+
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -51,11 +55,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return true;
-        //menu.add(0, UPDATE, 1, R.string.mp3list_update);
-        //menu.add(0, ABOUT, 2, R.string.mp3list_about);
-        return super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.options_menu, menu);
+        return true;
+//        menu.add(0, UPDATE, 1, R.string.mp3list_update);
+//        menu.add(0, ABOUT, 2, R.string.mp3list_about);
+//        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -63,14 +67,29 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        //int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
+//        int id = item.getItemId();
+//        System.out.println("id--->" + id);
+//        //noinspection SimplifiableIfStatement
 //        if (id == UPDATE) {
 //            //updateListView();
 //        } else if (id == ABOUT) {
-//
+//            Toast.makeText(MainActivity.this,"about",Toast.LENGTH_SHORT).show();
 //        }
+//        String name = (String) item.getTitle();
+//        if (name.equals(UPDATE)) {
+//            //updateListView();
+//        } else if (name.equals(ABOUT)) {
+//            Toast.makeText(MainActivity.this, "about", Toast.LENGTH_SHORT).show();
+//        }
+
+        switch (item.getItemId()) {
+            case R.id.menu_readme:
+                Toast.makeText(MainActivity.this, "readme", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.menu_about:
+                Toast.makeText(MainActivity.this, "about", Toast.LENGTH_SHORT).show();
+                break;
+        }
 
         return super.onOptionsItemSelected(item);
     }

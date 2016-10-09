@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".RemoteMp3ListActivity">
     <item
-        android:id="@+id/update"
+        android:id="@+id/menu_readme"
         android:orderInCategory="100"
-        android:title="@string/mp3list.update"
+        android:title="@string/menu.readme"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/about"
+        android:id="@+id/menu_about"
         android:orderInCategory="100"
-        android:title="@string/mp3list.about"
+        android:title="@string/menu.about"
         app:showAsAction="never" />
 </menu>
